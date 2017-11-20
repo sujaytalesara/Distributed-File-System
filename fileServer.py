@@ -11,7 +11,7 @@ import os
 def retriveFile(name,sock):
      filename = sock.recv(1024)
      if os.path.isfile(filename):
-          file = str(filename.decode())
+          file = str(b'filename')
           print(file + "****")
           fileSize = str(os.path.getsize('main.py'))
           
