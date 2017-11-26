@@ -1,16 +1,20 @@
-# -*- coding: utf-8 -*-
-"""
-@author: sujay
-description : Distributed file system
-"""
-
 import web
+import os
 
-urls = ('/(.+)','Index')
+urls = ('/filepath/(.*)','fileServer')
+#web.config.debug = False
 
-class Index:
-	def GET(self,name=None):
-		return ("Hello World !" + name)
+class fileServer:
+
+	def GET(self,filePath):
+		if os.path.isfile(filePath):
+			with open(filePath) as file:
+				return file.read()
+		else:
+			value = "File not Found at --- "(os.path.isfile(filePath))
+#			print(value + "**************")
+			return value
+
 	def POST(self,name):
 		return "post"
 
