@@ -1,7 +1,7 @@
 import requests as req
 
 #url = "http://localhost:8080/fileserver/"
-url = "http://localhost:8080/directoryserver/"
+url = "http://localhost:8081/directoryserver/"
 
 filePath = input("Enter File Name : ")
 

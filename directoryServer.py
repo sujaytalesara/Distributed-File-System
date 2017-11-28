@@ -14,32 +14,29 @@ urls = ('/directoryserver/(.*)','directoryServer')
 class directoryServer:
 
 	def GET(self,fileName):
-         
-         try:
-             
-              value = ""
-              objShelve = shelve.open("Directory_names.dat")
-              keys = list(objShelve.key())
-              print(keys + "1..")
-     
-              if fileName == "*" :
-                   value = keys
-                   print(value + "2..")
-              elif fileName in keys:
-                   value = list(objShelve["fileName"])
-                   print(value + "3...")
-              else:
-                   value = "Nothing Found " +  list(objShelve.keys())
-                   print(value + "4...")
-              
-         finally:
-              objShelve.close()
-              
-              return value
-                         
-               
-	def POST(self,name):
-		return "post"
+
+		try:
+			value = ""
+			objShelve = shelve.open("Directory_names.dat")
+			keys = list(objShelve.keys())
+
+			if fileName == "*":
+				 for items in keys:
+					 value = value + "\n" + items
+			elif fileName in keys:
+			#	print(type(objShelve["fileName"]))
+				value = objShelve[fileName]
+			else:
+				 value = "Nothing Found "
+		except KeyError :
+			print("Error in Keyss")
+		except:
+			print("Something Else")
+
+		finally:
+			objShelve.close()
+		return value
+
 
 if __name__=="__main__":
 	app = web.application(urls,globals())
