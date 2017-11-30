@@ -5,7 +5,7 @@ Created on Sun Nov 26 17:09:30 2017
 """
 
 import web
-import MyWebApp
+import PortManager
 import shelve
 
 urls = ('/directoryserver/(.*)','directoryServer')
@@ -39,5 +39,5 @@ class directoryServer:
 
 
 if __name__=="__main__":
-	app = MyWebApp.MyWebApp(urls,globals())
+	app = PortManager.changePort(urls,globals())
 	app.run(port=8081)
