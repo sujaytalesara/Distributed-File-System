@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Nov 26 17:09:30 2017
-
 @author: sujay
 """
 
 import web
+import MyWebApp
 import shelve
 
 urls = ('/directoryserver/(.*)','directoryServer')
@@ -39,5 +39,5 @@ class directoryServer:
 
 
 if __name__=="__main__":
-	app = web.application(urls,globals())
-	app.run()
+	app = MyWebApp.MyWebApp(urls,globals())
+	app.run(port=8081)
