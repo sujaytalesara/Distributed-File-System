@@ -1,6 +1,6 @@
 import web
 
-class MyWebApp(web.application):
+class changePort(web.application):
 
     def run(self,port=8080,*middleware):
         func = self.wsgifunc(*middleware)
