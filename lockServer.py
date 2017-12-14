@@ -1,25 +1,23 @@
-
 import PortManager
 import shelve
 
 
-urls = ('/lockServer/fileName/(.*)','lockServer',
-'/lockServer/fileName/Unlock/(.*)','lockServer2')
+urls = ('/lockServer/(.*)','lockServer')
 
 class lockServer:
 
      def GET(self,fileName):
-         print(fileName)
-         shelv = shelve.open("locket_Directory.dat")
+         print(fileName + "From Lock server %%%%%%%%%%%%%%%%%")
+         shelv = shelve.open("lock_Directory.dat")
          value = shelv[fileName]
          print(value)
          try:
-             if value == {0}:
-                 shelv[fileName] = {1}
-                 print("***********************Success ************************")
+             if value == 0:
+                 shelv[fileName] = 1
+                 print("**********Success ************")
                  return 'FileLocked'
-             elif value == {1}:
-                 print("***********************else ************************")
+             elif value == 1:
+                 print("************else ************")
                  return 'Not'
          except:
              print('Error while locking')
@@ -28,12 +26,12 @@ class lockServer:
 
      def POST(self,fileName):
           print(fileName)
-          shelv = shelve.open("locket_Directory.dat")
+          shelv = shelve.open("lock_Directory.dat")
           value = shelv[fileName]
           #print(value)
           try:
-              if value == {1}:
-                  shelv[fileName] = {0}
+              if value == 1:
+                  shelv[fileName] = 0
                   print("*******Success ***********")
               return 'FileUnLocked'
           except:

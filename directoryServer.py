@@ -4,7 +4,6 @@ Created on Sun Nov 26 17:09:30 2017
 @author: sujay
 """
 
-import web
 import PortManager
 import shelve
 
