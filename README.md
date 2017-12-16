@@ -7,8 +7,8 @@ Six main components are implemented in DFS. The following are them:
 2. Directory Service
 3. Security Service
 4. Lock Service
-5.) Client Proxy
-6.) Caching - In progress
+5. Client Proxy
+6. Caching - In progress
 
 # 1. Distributed Transparent File Access --
 The following are the tasks that is taken care by distributed file server:
