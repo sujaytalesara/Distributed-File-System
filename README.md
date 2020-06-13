@@ -1,5 +1,3 @@
-Student ID - 17306775
-Name - Sujay Talesara
 
 # Distributed File Server :
 Distributed File System is implemented in Python using RESTful Webservices. Web.py is used to
